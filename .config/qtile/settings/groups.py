@@ -11,7 +11,7 @@ from .keys import mod, keys
 # - Configs (nf-seti-config)
 
 groups = [Group(i) for i in [
-	" 󰖟 ",
+    " 󰖟 ",
     " 󰨞 ",
     " 󰊢 ",
     "  ",
