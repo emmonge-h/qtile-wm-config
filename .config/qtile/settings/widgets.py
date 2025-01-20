@@ -42,8 +42,8 @@ secondary_widgets = [
 ]
 
 widget_defaults = dict(
-    font="GeistMono Nerd Font SemiBold",
-    fontsize=20,
+    font="GeistMono Nerd Font Medium",
+    fontsize=15,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
