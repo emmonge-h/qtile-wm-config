@@ -3,82 +3,86 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 
-keys = [   
+keys = [Key(key[0], key[1], *key[2:]) for key in [   
     # ----- Window Actions -----
 
     # Switch between windows
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "l", lazy.layout.right()),
-    Key([mod], "j", lazy.layout.down()),
-    Key([mod], "k", lazy.layout.up()),
-    Key([mod], "space", lazy.layout.next()),
+    ([mod], "h", lazy.layout.left()),
+    ([mod], "l", lazy.layout.right()),
+    ([mod], "j", lazy.layout.down()),
+    ([mod], "k", lazy.layout.up()),
+    ([mod], "space", lazy.layout.next()),
 
     # Move windows between left/right columns or move up/down in current stack
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    ([mod, "shift"], "h", lazy.layout.shuffle_left()),
+    ([mod, "shift"], "l", lazy.layout.shuffle_right()),
+    ([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    ([mod, "shift"], "k", lazy.layout.shuffle_up()),
 
     # Grow windows with keyboard
-    Key([mod, "control"], "h", lazy.layout.grow_left()),
-    Key([mod, "control"], "l", lazy.layout.grow_right()),
-    Key([mod, "control"], "j", lazy.layout.grow_down()),
-    Key([mod, "control"], "k", lazy.layout.grow_up()),
+    ([mod, "control"], "h", lazy.layout.grow_left()),
+    ([mod, "control"], "l", lazy.layout.grow_right()),
+    ([mod, "control"], "j", lazy.layout.grow_down()),
+    ([mod, "control"], "k", lazy.layout.grow_up()),
 
     # Reset windows
-    Key([mod], "n", lazy.layout.normalize()),
+    ([mod], "n", lazy.layout.normalize()),
 
     # Toggle window mode
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
-    Key([mod], "t", lazy.window.toggle_floating()),
+    ([mod], "f", lazy.window.toggle_fullscreen()),
+    ([mod], "t", lazy.window.toggle_floating()),
 
     # Kill window
-    Key([mod], "w", lazy.window.kill()),
+    ([mod], "w", lazy.window.kill()),
 
     # ----- Qtile Actions -----
 
     # Restart Qtile 
-    Key([mod, "control"], "r", lazy.restart()),
+    ([mod, "control"], "r", lazy.restart()),
 
     # Shutdown Qtile
-    Key([mod, "control"], "q", lazy.shutdown()),
+    ([mod, "control"], "q", lazy.shutdown()),
     
     # Open (spawn) application
-    Key([mod], "o", lazy.spawncmd()),
+    ([mod], "o", lazy.spawncmd()),
     
     # ----- App Configs -----
     
     # Terminal
-    Key([mod], "Return", lazy.spawn("terminator")),
+    ([mod], "Return", lazy.spawn("terminator")),
 
     # App launcher (rofi)
-    Key([mod], "m", lazy.spawn("rofi -show drun")),
+    ([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Browser
-    Key([mod], "b", lazy.spawn("firefox")),
+    ([mod], "b", lazy.spawn("firefox")),
 
     # File explorer
-    Key([mod], "e", lazy.spawn("thunar")),
+    ([mod], "e", lazy.spawn("thunar")),
 
     # Redshift
-    Key([mod], "r", lazy.spawn("redshift -O 2400")),
-    Key([mod, "shift"], "r", lazy.spawn("redshift -x")),    
+    ([mod], "r", lazy.spawn("redshift -O 2400")),
+    ([mod, "shift"], "r", lazy.spawn("redshift -x")),    
+
+    # Screenshot
+    ([mod], "s", lazy.spawn("scrot 'screenshot_%Y-%m-%d-%T_$wx$h.png' -e 'mkdir -p ~/images/screenshots/ | mv $f ~/images/screenshots/'")),
+    ([mod, "shift"], "s", lazy.spawn("scrot -s 'screenshot_%Y-%m-%d-%T_$wx$h.png' -e 'mkdir -p ~/images/screenshots/ | mv $f ~/images/screenshots/'")),
 
     # ----- Hardware Configs -----
 
-	# Volume
-    Key([], "XF86AudioLowerVolume", lazy.spawn(
+    # Volume
+    ([], "XF86AudioLowerVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ -5%"
     )),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn(
+    ([], "XF86AudioRaiseVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ +5%"
     )),
-    Key([], "XF86AudioMute", lazy.spawn(
+    ([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),	
 
     # Brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
-]
+    ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
+    ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
+]]
 
