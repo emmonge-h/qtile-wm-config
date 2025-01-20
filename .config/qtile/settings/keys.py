@@ -64,7 +64,7 @@ keys = [
     Key([mod], "r", lazy.spawn("redshift -O 2400")),
     Key([mod, "shift"], "r", lazy.spawn("redshift -x")),    
 
-	# ----- Hardware Configs -----
+    # ----- Hardware Configs -----
 
 	# Volume
     Key([], "XF86AudioLowerVolume", lazy.spawn(
