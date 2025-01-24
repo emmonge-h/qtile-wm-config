@@ -10,7 +10,7 @@ import subprocess
 bg_wallpaper = os.path.join(os.path.expanduser("~"), ".config/qtile/wallpaper.jpg") 
 
 def status_bar(widgets):
-    return bar.Bar(widgets, 45)
+    return bar.Bar(widgets, 30)
 
 screens = [Screen(
     wallpaper=bg_wallpaper,
