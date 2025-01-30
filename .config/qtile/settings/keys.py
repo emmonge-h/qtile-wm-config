@@ -31,7 +31,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Toggle window mode
     ([mod], "f", lazy.window.toggle_fullscreen()),
     ([mod], "t", lazy.window.toggle_floating()),
-
+    ([mod], "Tab", lazy.next_layout()),
     # Kill window
     ([mod], "w", lazy.window.kill()),
 
@@ -55,7 +55,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Browser
-    ([mod], "b", lazy.spawn("firefox")),
+    ([mod], "b", lazy.spawn("brave")),
 
     # File explorer
     ([mod], "e", lazy.spawn("thunar")),

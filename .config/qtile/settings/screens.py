@@ -1,13 +1,14 @@
 # Multimonitor support
 
-import os
 from libqtile.config import Screen
+from os import path
 from libqtile import bar
 from libqtile.log_utils import logger
 from .widgets import primary_widgets, secondary_widgets
+from .path import qtilePath
 import subprocess
 
-bg_wallpaper = os.path.join(os.path.expanduser("~"), ".config/qtile/wallpaper.jpg") 
+bg_wallpaper = path.join(qtilePath, "wallpaper.jpg")
 
 def status_bar(widgets):
     return bar.Bar(widgets, 30)
