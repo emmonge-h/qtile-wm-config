@@ -61,6 +61,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # File explorer
     ([mod], "e", lazy.spawn("thunar")),
 
+    # Text editor
+    ([mod], "c", lazy.spawn("code")),
+
     # Redshift
     ([mod], "r", lazy.spawn("redshift -O 2400")),
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),    
