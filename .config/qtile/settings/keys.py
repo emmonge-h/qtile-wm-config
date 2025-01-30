@@ -32,6 +32,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "f", lazy.window.toggle_fullscreen()),
     ([mod], "t", lazy.window.toggle_floating()),
     ([mod], "Tab", lazy.next_layout()),
+    
     # Kill window
     ([mod], "w", lazy.window.kill()),
 
